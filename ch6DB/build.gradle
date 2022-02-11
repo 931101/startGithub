@@ -1,0 +1,35 @@
+plugins{
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+}
+
+ext{
+    springBootVersion='1.5.8.RELEASE'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+//jar 이름,버전 설정
+jar{
+    baseName ='test'
+    version = '0.0.1'
+}
+repositories {
+    jcenter()
+}
+
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+
+    //db 설정
+    implementation group: 'org.webjars.npm', name: 'oracledb', version: '4.0.0'
+    compile "com.oracle.ojdbc:ojdbc8:19.3.0.0"
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '2.5.1'
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile 'junit:junit:4.12'
+}
